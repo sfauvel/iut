@@ -11,4 +11,5 @@ L'expression régulière doit correspondre à une heure ayant un format hh:mm
  - La valeur des minutes est comprise entre 0 et 59 inclus
  
 Exemple d'utilisation d'un regexp:
+
 boolean result = myText.matches(myRegExp); 
