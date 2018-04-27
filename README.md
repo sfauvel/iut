@@ -1,6 +1,6 @@
 # Test IUT
 
-String regexpHour = "(([0-1]+\\d)|(2[0-3]))(h|\\:)\\d{2}";
+String regexpHour = "(([0-1]+\\\\d)|(2[0-3]))(h|\\\\:)\\\\d{2}";
 
 L'expression régulière doit correspondre à une heure ayant un format hh:mm
  - Les heures sont séparées des minutes par ':', 'h' ou 'H'
