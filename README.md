@@ -12,10 +12,10 @@ public class Game {
 }
 ```
 
-On début du jeu, vous êtes dans la case A.
-Vous pouvez vous déplacer en appelant les méthodes up, down, right, left.
-Si votre mouvement vous fait sortir du jeu, le mouvement est annulé.
-La méthode win, retourne vrai si vous êtes sur la position B.
+* On début du jeu, vous êtes dans la case A.
+* Vous pouvez vous déplacer en appelant les méthodes up, down, right, left.
+* Si votre mouvement vous fait sortir du jeu, le mouvement est annulé.
+* La méthode win, retourne vrai si vous êtes sur la position B.
 
 | A | . | . |
 | ------------- | ------------- | ------------- |
