@@ -1,15 +1,24 @@
 # Test IUT
 
-String regexpHour = "(([0-1]+\\\\d)|(2[0-3]))(h|\\\\:)\\\\d{2}";
+public class Game {
+		private int p = 0;
+		public boolean win() { return p==(2<<2); }
+		public Game up() { return set(Math.max(p-3,0)); }
+		public Game right() { return set(3*(p/3)+Math.min((p%3)+1,2)); }
+		public Game left() { return set(3*(p/3)+Math.max((p%3)+1,0)); }
+		public Game down() { return set(Math.min(p+3,8)); }
+		private Game set(int p) { this.p=p; return this; }
+	}
 
-L'expression régulière doit correspondre à une heure ayant un format hh:mm
- - Les heures sont séparées des minutes par ':', 'h' ou 'H'
- - Les heures sont sur 1 ou 2 caractères
- - Une heure sur 2 caractères peut commencer par un 0
- - La valeur des heures est comprise entre 0 et 23 inclus
- - Les minutes sont sur 2 caractères
- - La valeur des minutes est comprise entre 0 et 59 inclus
- 
-Exemple d'utilisation d'un regexp:
+On début du jeu, vous êtes dans la case A.
+Vous pouvez vous déplacer en appelant les méthodes up, down, right, left.
+Si votre mouvement vous fait sortir du jeu, le mouvement est annulé.
+La méthode win, retourne vrai si vous êtes sur la position B.
 
-boolean result = myText.matches(myRegExp); 
+-------------
+| A |   |   |
+-------------
+|   |   |   |
+-------------
+|   |   | B |
+-------------
