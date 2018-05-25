@@ -17,6 +17,18 @@ public class Game {
 * Si votre mouvement vous fait sortir du jeu, le mouvement est annulé.
 * La méthode win, retourne vrai si vous êtes sur la position B.
 
+Par exemple, isWin  doit retourner vrai après avoir fait 2 fois right et 2 fois down.
+
+```
+// On peut faire les appels les uns après les autres
+game.right();
+game.right();
+
+// Ou le chainer
+game.right().right();
+
+```
+
 | A | . | . |
 | ------------- | ------------- | ------------- |
 | . | . | . |
