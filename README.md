@@ -1,35 +1,27 @@
 # Test IUT
 
 ```
-public class Game {
-	private int p = 0;
-	public boolean win() { return p==(2<<2); }
-	public Game up() { return set(Math.max(p-3,0)); }
-	public Game right() { return set(3*(p/3)+Math.min((p%3)+1,2)); }
-	public Game left() { return set(3*(p/3)+Math.max((p%3)+1,0)); }
-	public Game down() { return set(Math.min(p+3,8)); }
-	private Game set(int p) { this.p=p; return this; }
+import java.util.HashSet;
+import java.util.Set;
+
+class Graph {
+	private Set<String> links = new HashSet<String>();
+	public void link(int left, int right) {
+		links.add(left + ":" + right);
+	}
+	public boolean isLink(int left, int right) {
+		return links.stream().filter(l -> Integer.valueOf(l.split(":")[0]) == Math.min(left, right))
+		        .map(l -> Integer.valueOf(l.split(":")[1]))
+		        .anyMatch(n -> n == Math.max(left, right) || isLink(n, Math.max(left, right)));
+	}
 }
-```
-
-* On début du jeu, vous êtes dans la case A.
-* Vous pouvez vous déplacer en appelant les méthodes up, down, right, left.
-* Si votre mouvement vous fait sortir du jeu, le mouvement est annulé.
-* La méthode win, retourne vrai si vous êtes sur la position B.
-
-Par exemple, isWin  doit retourner vrai après avoir fait 2 fois right et 2 fois down.
-
-```
-// On peut faire les appels les uns après les autres
-game.right();
-game.right();
-
-// Ou le chainer
-game.right().right();
 
 ```
 
-| A | . | . |
-| ------------- | ------------- | ------------- |
-| . | . | . |
-| . | . | B | 
+* Classe permettant de définir un graph acyclique.
+* Les noeuds sont définis par des chiffres.
+* On créé un lien entre deux noeuds (ici 1 et 2) en appelant la méthode: link(1,2)
+* La méthode isLink indique s'il existe un lien entre les deux noeuds. 
+* La méthode isLink ne lève pas d'exceptions.
+
+Vérifier le bon fonctionnement
