@@ -18,10 +18,10 @@ class Graph {
 
 ```
 
-* Classe permettant de définir un graph acyclique.
+* Classe permettant de définir un graph non orienté.
 * Les noeuds sont définis par des chiffres.
 * On créé un lien entre deux noeuds (ici 1 et 2) en appelant la méthode: link(1,2)
 * La méthode isLink indique s'il existe un lien entre les deux noeuds. 
-* La méthode isLink ne lève pas d'exceptions.
+* La méthode isLink ne lève jamais d'exceptions.
 
 Vérifier le bon fonctionnement
