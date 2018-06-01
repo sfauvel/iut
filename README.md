@@ -24,4 +24,13 @@ class Graph {
 * La méthode isLink indique s'il existe un lien entre les deux noeuds. 
 * La méthode isLink ne lève jamais d'exceptions.
 
-Vérifier le bon fonctionnement
+Exemple
+```
+Avec:
+link(1,2) 
+link(2,3)
+Alors:
+isLink(1,3) == True
+```
+
+Vérifier le bon fonctionnement.
