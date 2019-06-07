@@ -1,36 +1,15 @@
 # Test IUT
 
-```
-import java.util.HashSet;
-import java.util.Set;
+String regexpHour = "(([0-1]+\\\\d)|(2[0-3]))(h|\\\\:)\\\\d{2}";
 
-class Graph {
-	private Set<String> links = new HashSet<String>();
-	public void link(int left, int right) {
-		links.add(left + ":" + right);
-	}
-	public boolean isLink(int left, int right) {
-		return links.stream().filter(l -> Integer.valueOf(l.split(":")[0]) == Math.min(left, right))
-		        .map(l -> Integer.valueOf(l.split(":")[1]))
-		        .anyMatch(n -> n == Math.max(left, right) || isLink(n, Math.max(left, right)));
-	}
-}
+L'expression régulière doit correspondre à une heure ayant un format hh:mm
+ - Les heures sont séparées des minutes par ':', 'h' ou 'H'
+ - Les heures sont sur 1 ou 2 caractères
+ - Une heure sur 2 caractères peut commencer par un 0
+ - La valeur des heures est comprise entre 0 et 23 inclus
+ - Les minutes sont sur 2 caractères
+ - La valeur des minutes est comprise entre 0 et 59 inclus
+ 
+Exemple d'utilisation d'un regexp:
 
-```
-
-* Classe permettant de définir un graph non orienté.
-* Les noeuds sont définis par des chiffres.
-* On créé un lien entre deux noeuds (ici 1 et 2) en appelant la méthode: link(1,2)
-* La méthode isLink indique s'il existe un lien entre les deux noeuds. 
-* La méthode isLink ne lève jamais d'exceptions.
-
-Exemple
-```
-Avec:
-link(1,2) 
-link(2,3)
-Alors:
-isLink(1,3) == True
-```
-
-Vérifier le bon fonctionnement.
+boolean result = myText.matches(myRegExp); 
